@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alana | Desenvolvedora Full-Stack</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topo">
+    <a class="logo" href="#inicio">andre.dev</a>
+    <nav>
+      <a href="#sobre">Sobre</a>
+      <a href="#skills">Skills</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#contato">Contato</a>
+      <button class="botao-tema" aria-label="Alternar modo escuro">🌙</button>
+    </nav>
+    <button class="botao-menu" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </header>
+s
+  <main>
+    <!-- AULA 1: h1, p, img, a -->
+    <section id="inicio" class="hero container">
+      <div class="hero-texto">
+        <h1>Oi, eu sou a Alana.</h1>
+        <h2>Desenvolvedora full-stack</h2>
+        <p>Construo do botão na tela até o banco de dados. Gosto de código limpo, interfaces claras e projetos que resolvem problemas reais.</p>
+        <a class="botao" href="#projetos">Ver projetos</a>
+        <a class="botao botao-claro" href="#contato">Falar comigo</a>
+      </div>
+      <img class="foto" src="img/gato.png" alt="Foto da Alana">
+    </section>
+
+    <section id="sobre" class="container sobre">
+      <h2>Sobre mim</h2>
+      <p>Sou servidor público há 27 anos e trabalho com front-end e back-end. Já criei sistemas de agendamento, lojas virtuais e painéis de dados.</p>
+      <p>Fora do computador, gosto de tereré, gatos, cães e filmes.</p>
+    </section>
+
+    <!-- AULA 2: ul e ol -->
+    <section id="skills" class="container">
+      <h2>Skills</h2>
+      <div class="colunas">
+        <div class="cartao">
+          <h3>Front-end</h3>
+          <ul>
+            <li>HTML e CSS</li>
+            <li>JavaScript</li>
+            <li>React</li>
+          </ul>
+        </div>
+        <div class="cartao">
+          <h3>Back-end</h3>
+          <ul>
+            <li>Node.js</li>
+            <li>Python</li>
+            <li>PostgreSQL</li>
+          </ul>
+        </div>
+        <div class="cartao">
+          <h3>Ferramentas</h3>
+          <ol>
+            <li>Figma</li>
+            <li>GitHub</li>
+            <li>Docker</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section id="projetos" class="container">
+      <h2>Projetos</h2>
+      <div class="colunas">
+        <article class="cartao">
+          <img src="img/agenda-facil.png" alt="Imagem do projeto Agenda Fácil">
+          <h3>Agenda Fácil</h3>
+          <p>Sistema de agendamento online para clínicas.</p>
+          <h4>Tecnologias</h4>
+          <p>React, Node.js, PostgreSQL</p>
+          <a href="#">Ver projeto</a>
+        </article>
+        <article class="cartao">
+          <img src="img/pet-shop.png" alt="Imagem do projeto Pet-Shop">
+          <h3>Lojinha de Pet-Shop</h3>
+          <p>Loja virtual de pet-shop com carrinho e pagamento.</p>
+          <h4>Tecnologias</h4>
+          <p>JavaScript, Python</p>
+          <a href="#">Ver projeto</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="contato" class="container">
+      <h2>Contato</h2>
+      <p>Tem um projeto em mente? Vamos conversar.</p>
+      <a class="botao" href="mailto:alana@email.com">alana@email.com</a>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <h5>Alana</h5>
+    <h6>Feito com HTML e CSS</h6>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

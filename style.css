@@ -1,0 +1,249 @@
+/* ===== AULA 1: variáveis, reset e tipografia ===== */
+:root {
+  --fundo: #f5f3ff;
+  --superficie: #ffffff;
+  --texto: #1e1b4b;
+  --texto-suave: #55527a;
+  --primaria: #6d28d9;
+  --primaria-escura: #5b21b6;
+  --destaque: #fb923c;
+  --raio: 16px;
+  --sombra: 0 8px 24px rgba(109, 40, 217, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: var(--fundo);
+  color: var(--texto);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  line-height: 1.2;
+}
+
+h1 { font-size: clamp(2.2rem, 6vw, 3.5rem); }
+h2 { font-size: 1.8rem; margin-bottom: 1rem; }
+h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+h4 { font-size: 0.95rem; margin-top: 0.75rem; }
+
+p { color: var(--texto-suave); margin-bottom: 1rem; }
+
+a { color: var(--primaria); font-weight: 600; }
+
+img { max-width: 100%; display: block; }
+
+/* ===== AULA 2: layout com classes ===== */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: var(--superficie);
+  position: sticky;
+  top: 0;
+}
+
+.topo nav a {
+  margin-left: 1.25rem;
+  text-decoration: none;
+  color: var(--texto);
+  font-weight: 500;
+}
+
+.topo nav a:hover { color: var(--primaria); }
+
+.logo {
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.hero-texto { flex: 1; }
+
+.hero h2 {
+  color: var(--primaria);
+  font-size: 1.4rem;
+}
+
+.foto {
+  width: 260px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid var(--destaque);
+}
+
+.botao {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--primaria);
+  color: #fff;
+  border-radius: 999px;
+  text-decoration: none;
+  margin-right: 0.5rem;
+}
+
+.botao:hover { background: var(--primaria-escura); }
+
+.botao-claro {
+  background: transparent;
+  color: var(--primaria);
+  border: 2px solid var(--primaria);
+}
+
+.botao-claro:hover {
+  background: var(--primaria);
+  color: #fff;
+}
+
+/* ===== AULA 3: cartões, listas e responsivo ===== */
+.colunas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.cartao {
+  background: var(--superficie);
+  padding: 1.5rem;
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+}
+
+.cartao img {
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+ul, ol { padding-left: 1.25rem; }
+
+li { margin-bottom: 0.4rem; }
+
+li::marker { color: var(--destaque); }
+
+.rodape {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: var(--texto);
+  color: #fff;
+}
+
+.rodape h6 { font-weight: 400; opacity: 0.7; }
+
+@media (max-width: 700px) {
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .topo nav a { margin-left: 0.75rem; }
+}
+
+/* ===== JAVASCRIPT — AULA 2: modo escuro =====
+   Bloco colado na aula 2 (07/10).
+
+   O JavaScript liga e desliga a classe "modo-escuro" na tag
+   <html>. Aqui a gente só troca os valores das variáveis do
+   :root — o resto do CSS não muda. */
+
+html.modo-escuro {
+  --fundo: #0f0d1f;
+  --superficie: #1c1936;
+  --texto: #ede9fe;
+  --texto-suave: #b8b3d6;
+  --primaria: #c4b5fd;
+  --primaria-escura: #a78bfa;
+}
+
+/* Estas partes usam cores fixas no CSS original,
+   então precisam de ajuste no modo escuro */
+html.modo-escuro .botao { color: var(--fundo); }
+html.modo-escuro .botao-claro { color: var(--primaria); }
+html.modo-escuro .botao-claro:hover { color: var(--fundo); }
+html.modo-escuro .rodape { background: var(--superficie); color: var(--texto); }
+
+body { transition: background-color 0.3s, color 0.3s; }
+
+/* O botão que o JavaScript vai ouvir */
+.botao-tema {
+  margin-left: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.1rem;
+  background: none;
+  border: 2px solid var(--primaria);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+/* ===== JAVASCRIPT — AULA 3: menu do celular =====
+   Bloco colado na aula 3 (08/10).
+
+   No celular, os links do menu somem e aparece o botão ☰.
+   O JavaScript liga e desliga a classe "aberto" no <nav>;
+   aqui a gente só diz como o menu fica quando está aberto. */
+
+/* O botão ☰ fica escondido no computador */
+.botao-menu {
+  display: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.3rem;
+  background: none;
+  border: 2px solid var(--primaria);
+  border-radius: 10px;
+  color: var(--texto);
+  cursor: pointer;
+}
+
+/* Deixa o menu aberto por cima do conteúdo da página */
+.topo { z-index: 10; }
+
+@media (max-width: 700px) {
+  .botao-menu { display: block; }
+
+  /* Menu fechado: escondido */
+  .topo nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 0.5rem 1.5rem 1rem;
+    background: var(--superficie);
+    box-shadow: var(--sombra);
+  }
+
+  /* Menu aberto: o JavaScript põe a classe "aberto" */
+  .topo nav.aberto { display: block; }
+
+  .topo nav a {
+    display: block;
+    margin: 0;
+    padding: 0.75rem 0;
+  }
+
+  .topo nav .botao-tema { margin: 0.5rem 0 0; }
+}
